@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import models.AuthModel;
@@ -265,6 +266,18 @@ public class AuthView {
 		registrarse.setBackground(new Color(0, 128, 128));
 		registrarse.setOpaque(true);
 		login.add(registrarse);
+		registrarse.addActionListener(new ActionListener() {//ActionListener
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				frame.dispose();
+				
+				register();
+				
+			}
+			
+		});
 		
 		//CASILLA DE VERIFICACIÓN
 		
@@ -281,6 +294,173 @@ public class AuthView {
 		frame.repaint();
 		
  		login.repaint();
+		
+	}
+	
+	public void register() {
+		
+		frame = new JFrame();
+		frame.setTitle("mvc");
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/saturno.png")));//Ícono de ventana personalizado
+		frame.setSize(500, 537);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		
+		//PANEL
+		
+		JPanel registro = new JPanel();
+		registro.setLocation(0, 0);
+		registro.setSize(500, 500);
+		registro.setOpaque(true);
+		registro.setBackground(Color.WHITE);
+		registro.setVisible(true);
+		registro.setLayout(null);
+		
+		//ETIQUETAS
+		
+		Font etiquetas = new Font("Romana", Font.ROMAN_BASELINE, 22);
+		Font etiquetas2 = new Font("Romana 2", Font.ROMAN_BASELINE, 10);
+		Font etiquetas3 = new Font("Romana 3", Font.ROMAN_BASELINE, 17);
+		
+		JLabel etiqueta1 = new JLabel("Registrarse");
+		etiqueta1.setSize(160, 30);
+		etiqueta1.setLocation(160, 20);
+		etiqueta1.setFont(etiquetas);
+		etiqueta1.setHorizontalAlignment(JLabel.CENTER);
+		etiqueta1.setBackground(Color.GREEN);
+		etiqueta1.setOpaque(true);
+		etiqueta1.setBorder(BorderFactory.createLineBorder(Color.black));
+		registro.add(etiqueta1);
+		
+		JLabel etiqueta2 = new JLabel("Email");
+		etiqueta2.setBounds(190, 65, 100, 30);
+		etiqueta2.setFont(etiquetas);
+		etiqueta2.setHorizontalAlignment(JLabel.CENTER);
+		etiqueta2.setBackground(Color.YELLOW);
+		etiqueta2.setOpaque(true);
+		etiqueta2.setBorder(BorderFactory.createLineBorder(Color.black));
+		registro.add(etiqueta2);
+		
+		JLabel etiqueta3 = new JLabel("Biografía");
+		etiqueta3.setBounds(160, 200, 160, 30);
+		etiqueta3.setFont(etiquetas);
+		etiqueta3.setHorizontalAlignment(JLabel.CENTER);
+		etiqueta3.setBackground(Color.WHITE);
+		etiqueta3.setOpaque(true);
+		registro.add(etiqueta3);
+		
+		JLabel etiqueta4 = new JLabel("Preferencias");
+		etiqueta4.setBounds(160, 320, 160, 30);
+		etiqueta4.setFont(etiquetas);
+		etiqueta4.setHorizontalAlignment(JLabel.CENTER);
+		etiqueta4.setBackground(Color.WHITE);
+		etiqueta4.setOpaque(true);
+		registro.add(etiqueta4);
+		
+		JLabel etiqueta5 = new JLabel("Términos");
+		etiqueta5.setBounds(160, 360, 160, 30);
+		etiqueta5.setFont(etiquetas);
+		etiqueta5.setHorizontalAlignment(JLabel.CENTER);
+		etiqueta5.setBackground(Color.YELLOW);
+		etiqueta5.setOpaque(true);
+		etiqueta5.setBorder(BorderFactory.createLineBorder(Color.black));
+		registro.add(etiqueta5);
+		
+		JLabel etiqueta6 = new JLabel("Contraseña");
+		etiqueta6.setBounds(175, 135, 130, 30);
+		etiqueta6.setFont(etiquetas);
+		etiqueta6.setHorizontalAlignment(JLabel.CENTER);
+		etiqueta6.setBackground(Color.YELLOW);
+		etiqueta6.setOpaque(true);
+		etiqueta6.setBorder(BorderFactory.createLineBorder(Color.black));
+		registro.add(etiqueta6);
+		
+		//CAJAS DE TEXTO
+		
+		JTextField email = new JTextField();
+		email.setBounds(110, 100, 260, 30);
+		email.setFont(etiquetas2);
+		email.setBackground(Color.cyan);
+		email.setOpaque(true);
+		registro.add(email);
+		
+		JTextField contraseña = new JTextField();
+		contraseña.setBounds(110, 170, 260, 30);
+		contraseña.setFont(etiquetas2);
+		contraseña.setBackground(Color.cyan);
+		contraseña.setOpaque(true);
+		registro.add(contraseña);
+		
+		//ÁREA DE TEXTO
+		
+		JTextArea biografía = new JTextArea();
+		biografía.setBounds(110, 230, 260, 80);
+		biografía.setFont(etiquetas2);
+		biografía.setBackground(Color.cyan);
+		biografía.setOpaque(true);
+		registro.add(biografía);
+		
+		//BOTONES
+		
+		JButton access = new JButton("Crear cuenta");
+		access.setBounds(140, 400, 200, 30);
+		access.setFont(etiquetas);
+		access.setHorizontalAlignment(JLabel.CENTER);
+		access.setBackground(Color.ORANGE);
+		access.setOpaque(true);
+		registro.add(access);
+		//ActionListener
+		access.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				if (email.getText().equals("")) {//validación de llenado de casilla de email
+					email.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				}
+				else {
+					email.setBorder(BorderFactory.createLineBorder(Color.green, 5));
+				}
+				if (contraseña.getText().equals("")) {//validación de llenado de casilla de email
+					contraseña.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				}
+				else {
+					contraseña.setBorder(BorderFactory.createLineBorder(Color.green, 5));
+				}
+				if (biografía.getText().equals("")) {//validación de llenado de área de texto: biografía
+					biografía.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				}
+				else {
+					biografía.setBorder(BorderFactory.createLineBorder(Color.green, 5));
+				}
+			
+				functions.registro(email.getText(), contraseña.getText(), biografía.getText());
+				
+			}
+			
+		});
+		
+		JButton Iniciar_Sesión = new JButton("Iniciar Sesión");
+		Iniciar_Sesión.setBounds(190, 435, 100, 20);
+		Iniciar_Sesión.setFont(etiquetas2);
+		Iniciar_Sesión.setHorizontalAlignment(JLabel.CENTER);
+		Iniciar_Sesión.setBackground(Color.WHITE);
+		Iniciar_Sesión.setOpaque(true);
+		registro.add(Iniciar_Sesión);
+		
+		JButton volver = new JButton("Volver");
+		volver.setBounds(190, 460, 100, 30);
+		volver.setFont(etiquetas3);
+		volver.setHorizontalAlignment(JLabel.CENTER);
+		volver.setBackground(Color.ORANGE);
+		registro.add(volver);
+		
+		frame.add(registro);
+		frame.repaint();
+		
+ 		registro.repaint();
 		
 	}
 

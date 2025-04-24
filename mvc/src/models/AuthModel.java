@@ -22,4 +22,12 @@ public class AuthModel {
  		 
  	}
 	
+	public void registro(String usuario, String contraseña, String biografía) {
+		
+		System.out.println("|Usuario|\n" + usuario + "\n");
+		System.out.println("|Contraseña|\n" + contraseña + "\n");
+		System.out.println("|Biografía|\n" + biografía + "\n");
+		
+	}
+	
 }
