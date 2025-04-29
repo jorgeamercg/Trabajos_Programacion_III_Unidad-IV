@@ -1,0 +1,3 @@
+Jorge Mercado,jorgeamercg@gmail.com,qwerty,admin
+Ana Hernández,anaher@gmail.com,12345,user
+Ernesto Esquivel,ernesq@gmail.com,qazwsx,user

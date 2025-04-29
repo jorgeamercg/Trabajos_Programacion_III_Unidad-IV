@@ -172,79 +172,36 @@ public class AuthView {
 			    }
 			    
 			    if (validación_email && validación_contraseña) {//Mensajes de alerta
-			        
-			        if (functions.autenticar(email.getText(), passText)) {//Ejecución del método autenticar de AuthModel
-			            
-			            //System.out.println("Acceso permitido: Bienvenido");
-			            
-			            JOptionPane.showMessageDialog(frame,
-			                "Acceso permitido: Bienvenido",
-			                "Acceso",
-			                JOptionPane.PLAIN_MESSAGE);
-			            
-			        }
-			        else {
-			            
-			            if (email.getText().equals("admin")) {
-			                
-			                //System.out.println("Contraseña incorrecta: Intente una vez más");
-			                
-			                JOptionPane.showMessageDialog(frame,
-			                    "Contraseña incorrecta: Intente una vez más",
-			                    "Contraseña",
-			                    JOptionPane.ERROR_MESSAGE);
-			                
-			            }
-			            else {
-			                
-			                //System.out.println("Email incorrecto: Escriba uno válido");
-			                
-			                JOptionPane.showMessageDialog(frame,
-			                    "Email incorrecto: Escriba uno válido",
-			                    "Email",
-			                    JOptionPane.ERROR_MESSAGE);
-			                
-			            }
-			            
-			        }   
-			    }
-			    else {
-			        
-			        if (validación_email) {
-			            
-			            if (email.getText().equals("admin")) {
-			                
-			                //System.out.println("Información faltante: Ingrese una contraseña");
-			                
-			                JOptionPane.showMessageDialog(frame,
-			                    "Información faltante: Ingrese una contraseña",
-			                    "Información",
-			                    JOptionPane.ERROR_MESSAGE);
-			                
-			            }
-			            else {
-			                
-			                //System.out.println("Email incorrecto: Escriba uno válido");
-			                
-			                JOptionPane.showMessageDialog(frame,
-			                    "Email incorrecto: Escriba uno válido",
-			                    "Email",
-			                    JOptionPane.ERROR_MESSAGE);
-			                
-			            }
-			            
-			        }
-			        else {
-			            
-			            //System.out.println("Información faltante: Ingrese un email");
-			            
+			    	
+			    	if (functions.autenticar(email.getText(), passText)) {//Ejecución del método autenticar de AuthModel
+			    	    /*JOptionPane.showMessageDialog(frame,
+			    	        "Acceso permitido: Bienvenido",
+			    	        "Acceso",
+			    	        JOptionPane.PLAIN_MESSAGE);*/
+			    		
+			    		frame.dispose();
+						
+						home();
+			    		
+			    	} else {
+			    	    JOptionPane.showMessageDialog(frame,
+			    	        "Acceso denegado: Email o contraseña incorrectos",
+			    	        "Acceso",
+			    	        JOptionPane.ERROR_MESSAGE);
+			    	}
+					
+				} else {
+					if (validación_email) {
+		                JOptionPane.showMessageDialog(frame,
+		                    "Información faltante: Ingrese una contraseña",
+		                    "Información",
+		                    JOptionPane.ERROR_MESSAGE);    
+			    	} else {
 			            JOptionPane.showMessageDialog(frame,
 			                "Información faltante: Ingrese un email",
 			                "Información",
 			                JOptionPane.ERROR_MESSAGE);
-			            
-			        }
-					
+			    	}
 				}
 				
 			}
@@ -298,6 +255,8 @@ public class AuthView {
 	}
 	
 	public void register() {
+		
+		//VENTANA
 		
 		frame = new JFrame();
 		frame.setTitle("mvc");
@@ -419,24 +378,21 @@ public class AuthView {
 				
 				if (email.getText().equals("")) {//validación de llenado de casilla de email
 					email.setBorder(BorderFactory.createLineBorder(Color.red, 5));
-				}
-				else {
+				} else {
 					email.setBorder(BorderFactory.createLineBorder(Color.green, 5));
 				}
 				if (contraseña.getText().equals("")) {//validación de llenado de casilla de email
 					contraseña.setBorder(BorderFactory.createLineBorder(Color.red, 5));
-				}
-				else {
+				} else {
 					contraseña.setBorder(BorderFactory.createLineBorder(Color.green, 5));
 				}
 				if (biografía.getText().equals("")) {//validación de llenado de área de texto: biografía
 					biografía.setBorder(BorderFactory.createLineBorder(Color.red, 5));
-				}
-				else {
+				} else {
 					biografía.setBorder(BorderFactory.createLineBorder(Color.green, 5));
 				}
 			
-				functions.registro(email.getText(), contraseña.getText(), biografía.getText());
+				functions.registro(email.getText(), contraseña.getText(), biografía.getText());//Ejecución del método registro de AuthModel
 				
 			}
 			
@@ -463,5 +419,59 @@ public class AuthView {
  		registro.repaint();
 		
 	}
-
+	
+	public void home() {
+		
+		//VENTANA
+		
+		frame = new JFrame();
+		frame.setTitle("mvc");
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/saturno.png")));//Ícono de ventana personalizado
+		frame.setSize(500, 537);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		
+		//PANEL
+		
+		JPanel ventanaPrincipal = new JPanel();
+		ventanaPrincipal.setLocation(0, 0);
+		ventanaPrincipal.setSize(500, 500);
+		ventanaPrincipal.setOpaque(true);
+		ventanaPrincipal.setBackground(Color.WHITE);
+		ventanaPrincipal.setVisible(true);
+		ventanaPrincipal.setLayout(null);
+		
+		//ETIQUETAS
+		
+		Font etiquetas = new Font("Romana", Font.ROMAN_BASELINE, 22);
+		Font etiquetas2 = new Font("Romana 2", Font.ROMAN_BASELINE, 10);
+		
+		JLabel etiqueta1 = new JLabel("Bienvenido");
+		etiqueta1.setSize(150, 30);
+		etiqueta1.setLocation(170, 20);
+		etiqueta1.setFont(etiquetas);
+		etiqueta1.setHorizontalAlignment(JLabel.CENTER);
+		etiqueta1.setBackground(Color.lightGray);
+		etiqueta1.setOpaque(true);
+		etiqueta1.setBorder(BorderFactory.createLineBorder(Color.black));
+		ventanaPrincipal.add(etiqueta1);
+		
+		//ÁREA DE TEXTO
+		
+		JTextArea biografia = new JTextArea("Esta es la ventana de inicio");
+		biografia.setBounds(115, 80, 260, 300);
+		biografia.setFont(etiquetas2);
+		biografia.setBackground(Color.cyan);
+		biografia.setOpaque(true);
+		ventanaPrincipal.add(biografia);
+		
+		frame.add(ventanaPrincipal);
+		frame.repaint();
+		
+ 		ventanaPrincipal.repaint();
+ 		
+	}
+	
 }
