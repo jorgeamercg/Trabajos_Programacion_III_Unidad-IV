@@ -17,6 +17,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import controllers.HomeController;
 import models.AuthModel;
 
 public class AuthView {
@@ -36,7 +37,7 @@ public class AuthView {
 		//VENTANA
 		
 		frame = new JFrame();
-		frame.setTitle("mvc");
+		frame.setTitle("Inicio de Sesión");
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/saturno.png")));//Ícono de ventana personalizado
 		frame.setSize(500, 537);
 		frame.setResizable(false);
@@ -181,7 +182,11 @@ public class AuthView {
 			    		
 			    		frame.dispose();
 						
-						home();
+						//home();
+			    		
+			    		HomeController hc = new HomeController();
+			    		
+			    		hc.home();
 			    		
 			    	} else {
 			    	    JOptionPane.showMessageDialog(frame,
@@ -259,7 +264,7 @@ public class AuthView {
 		//VENTANA
 		
 		frame = new JFrame();
-		frame.setTitle("mvc");
+		frame.setTitle("Registro");
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/saturno.png")));//Ícono de ventana personalizado
 		frame.setSize(500, 537);
 		frame.setResizable(false);
@@ -425,7 +430,7 @@ public class AuthView {
 		//VENTANA
 		
 		frame = new JFrame();
-		frame.setTitle("mvc");
+		frame.setTitle("Inicio");
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/saturno.png")));//Ícono de ventana personalizado
 		frame.setSize(500, 537);
 		frame.setResizable(false);
