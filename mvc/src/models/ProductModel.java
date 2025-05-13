@@ -38,7 +38,7 @@ public class ProductModel {
  		String url = "src/files/products.json";
          
          try (FileReader reader = new FileReader(url)) {
-             //Read JSON file
+             
              Object obj = jsonParser.parse(reader);
              
              JSONArray productList = (JSONArray) obj;
@@ -46,9 +46,6 @@ public class ProductModel {
              System.out.println(productList);
                
              return productList;
-             
-             //Iterate over array
-             //productList.forEach( emp -> parseTestData( (JSONObject) emp ) );
    
          } catch (FileNotFoundException e) {
              e.printStackTrace();
@@ -64,17 +61,16 @@ public class ProductModel {
 	
 	public Object[] parseTestData(JSONObject product) {
  		
- 		//Obtener valores directamente del objeto producto
- 	    Long id = (Long) product.get("id");  
- 	    String name = (String) product.get("nombre");   
- 	    Double price = (Double) product.get("precio"); 
- 	    Long stock = (Long) product.get("stock"); 
-	    
-	    return new Object[] {id, name, price, stock};
+	    long id = Long.parseLong(product.get("id").toString());
+	    String name = product.get("nombre").toString();
+	    double price = Double.parseDouble(product.get("precio").toString());
+	    long stock = Long.parseLong(product.get("stock").toString());
+
+	    return new Object[] { id, name, price, stock };
 	    
 	}
 	
-	public void remove(long id) {
+	public void productRemove(long id) {
 		
 	    JSONArray productList = get();
 	    if (productList == null) return;
@@ -130,7 +126,7 @@ public class ProductModel {
 	            System.out.println("Eliminar producto con ID: " + idStr);
 
 	            ProductModel pm = new ProductModel();
-	            pm.remove(id);
+	            pm.productRemove(id);
 
 	            model.setRowCount(0);
 	            JSONArray newData = functions.get();
@@ -141,6 +137,35 @@ public class ProductModel {
 	    });
 
 	    model.addRow(new Object[] { row[0], row[1], row[2], row[3], remove });
+	}
+	
+	@SuppressWarnings("unchecked")
+	public boolean productAdd(String id, String name, String price, String stock)
+	{
+		
+	    JSONArray productList = get();
+	    JSONObject jsonObject = new JSONObject();
+
+	    String url = "src/files/products.json";
+
+	    jsonObject.put("id", Long.parseLong(id));
+	    jsonObject.put("nombre", name);
+	    jsonObject.put("precio", Double.parseDouble(price));
+	    jsonObject.put("stock", Long.parseLong(stock));
+
+	    productList.add(jsonObject);
+
+	    try (FileWriter file = new FileWriter(url)) {
+	        String formatted = productList.toJSONString().replace("},", "},\n");
+	        file.write(formatted);
+	        file.flush();
+	        System.out.println("|Producto añadido con éxito|");
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+
+	    return true;
+	    
 	}
  	
 }

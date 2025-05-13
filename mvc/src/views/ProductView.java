@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
@@ -25,12 +26,13 @@ import javax.swing.table.TableCellRenderer;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import controllers.ProductController;
 import models.ProductModel;
 
 public class ProductView {
-
-	private JFrame win;
+	
 	private ProductModel functions;
+	
 	private JTable table;
 
 	public ProductView() {
@@ -41,7 +43,7 @@ public class ProductView {
 
 		//VENTANA
 
-		win = new JFrame();
+		JFrame win = new JFrame();
 		win.setTitle("Productos");
 		win.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/saturno.png")));//Ícono de ventana personalizado
 		win.setSize(1200, 484);
@@ -70,7 +72,7 @@ public class ProductView {
 		win.getContentPane().add(tablePanel, BorderLayout.CENTER);
 		tablePanel.setLayout(new FlowLayout());
 
-		String[] columnNames = { "ID", "Nombre", "Precio", "Stock", "Acción" };
+		String[] columnNames = {"ID", "Nombre", "Precio", "Stock", "Acción"};
 		DefaultTableModel model = new DefaultTableModel(columnNames, 0) {
 			@Override
 			public Class<?> getColumnClass(int columnIndex) {
@@ -104,7 +106,7 @@ public class ProductView {
 		win.getContentPane().add(buttonsPanel, BorderLayout.SOUTH);
 		buttonsPanel.setLayout(new FlowLayout());
 
-		JButton refresh = new JButton("Actualizar Tabla");//Botón: Actualizar
+		JButton refresh = new JButton("Actualizar Tabla");//Botón: Actualizar Tabla
 		refresh.setPreferredSize(new Dimension(130, 20));
 		refresh.setBackground(Color.BLUE);
 		refresh.setForeground(Color.WHITE); 
@@ -121,6 +123,24 @@ public class ProductView {
 		            functions.addTableRow((JSONObject) obj, model, table, functions);
 		        }
 				scrollPane.repaint();
+			}
+		});
+		
+		JButton add = new JButton("Añadir Producto");//Botón: Añadir Producto
+		add.setPreferredSize(new Dimension(130, 20));
+		add.setBackground(Color.GREEN);
+		add.setForeground(Color.BLACK); 
+		add.setFont(new Font("Tahoma", Font.BOLD, 10));
+		buttonsPanel.add(add);
+		add.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+		add.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				addProduct();
+				
+				win.dispose();
+				
 			}
 		});
 	}
@@ -157,6 +177,102 @@ public class ProductView {
 		public Object getCellEditorValue() {
 			return button;
 		}
+	}
+	
+	public void addProduct()
+	{
+		//VENTANA
+
+		JFrame win = new JFrame();
+		win.setTitle("Añadir Producto");
+		win.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/saturno.png")));//Ícono de ventana personalizado
+		win.setSize(500, 537);
+		win.setResizable(false);
+		win.setLocationRelativeTo(null);
+		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		win.setVisible(true);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
+		win.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setLayout(null);
+		
+		JLabel idTag = new JLabel("ID del producto: ");
+		idTag.setBounds(105, 100, 200, 40);
+		panel.add(idTag);
+		JTextField idInput = new JTextField();
+		idInput.setBounds(105, 130, 270, 20);
+		panel.add(idInput);
+		
+		JLabel nameTag = new JLabel("Nombre del producto: ");
+		nameTag.setBounds(105, 140, 200, 40);
+		panel.add(nameTag);
+		JTextField nameInput = new JTextField();
+		nameInput.setBounds(105, 170, 270, 20);
+		panel.add(nameInput);
+		
+		JLabel priceTag = new JLabel("Precio del producto: ");
+		priceTag.setBounds(105, 180, 200, 40);
+		panel.add(priceTag);
+		JTextField priceInput = new JTextField();
+		priceInput.setBounds(105, 210, 270, 20);
+		panel.add(priceInput);
+		
+		JLabel stockTag = new JLabel("Stock del producto: ");
+		stockTag.setBounds(105, 220, 200, 40);
+		panel.add(stockTag);
+		JTextField stockInput = new JTextField();
+		stockInput.setBounds(105, 250, 270, 20);
+		panel.add(stockInput);
+		
+		JButton add = new JButton("Añadir Producto");//Botón: Añadir Producto
+		add.setBounds(245, 450, 130, 20);
+		add.setBackground(Color.GREEN);
+		add.setForeground(Color.BLACK); 
+		add.setFont(new Font("Tahoma", Font.BOLD, 10));
+		panel.add(add);
+		add.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+		add.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				String id = idInput.getText();
+				String name = nameInput.getText();
+				String price = priceInput.getText();
+				String stock = stockInput.getText();
+				
+				ProductModel pm = new ProductModel();
+				pm.productAdd(id, name, price, stock);
+				
+				win.dispose();
+				
+				ProductController pc = new ProductController();
+				pc.products();
+				
+			}});
+		panel.add(add);
+		
+		JButton cancel = new JButton("Cancelar");//Botón: Cancelar
+		cancel.setBounds(105, 450, 130, 20);
+		cancel.setBackground(Color.RED);
+		cancel.setForeground(Color.WHITE); 
+		cancel.setFont(new Font("Tahoma", Font.BOLD, 10));
+		panel.add(cancel);
+		cancel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+		cancel.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				win.dispose();
+				
+				ProductController pc = new ProductController();
+				pc.products();
+				
+			}});
+		panel.add(cancel); 
+		
 	}
 
 }

@@ -36,4 +36,7 @@
 {"precio":27.9,"id":36,"stock":21,"nombre":"Webcam Nexxt Solutions NWVC640"},
 {"precio":28.49,"id":37,"stock":26,"nombre":"Base para Laptop Cooler Master"},
 {"precio":34.95,"id":38,"stock":19,"nombre":"Extensor WiFi TP-Link RE200"},
-{"precio":64.99,"id":39,"stock":11,"nombre":"Control Xbox Series X Inalámbrico"}]
+{"precio":64.99,"id":39,"stock":11,"nombre":"Control Xbox Series X Inalámbrico"},
+{"precio":800.0,"id":40,"stock":15,"nombre":"Antena WIFI StarLink"},
+{"precio":1200.0,"id":41,"stock":18,"nombre":"Teléfono Samsung Galaxy S23"},
+{"precio":2500.0,"id":42,"stock":10,"nombre":"Cámara Canon FXPro"}]
