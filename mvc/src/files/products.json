@@ -1,0 +1,242 @@
+[
+	{
+	  "id": 1,
+	  "nombre": "Smartphone Xiaomi Note 13",
+	  "precio": 239.99,
+	  "stock": 25
+	},
+	{
+	  "id": 2,
+	  "nombre": "Smart TV LG 43UK6300",
+	  "precio": 379.50,
+	  "stock": 10
+	},
+	{
+	  "id": 3,
+	  "nombre": "Teclado Redragon K552",
+	  "precio": 45.75,
+	  "stock": 30
+	},
+	{
+	  "id": 4,
+	  "nombre": "Monitor Samsung S24F350",
+	  "precio": 199.99,
+	  "stock": 12
+	},
+	{
+	  "id": 5,
+	  "nombre": "Disco Duro Seagate STGX1000",
+	  "precio": 59.90,
+	  "stock": 20
+	},
+	{
+	  "id": 6,
+	  "nombre": "SSD Kingston A400",
+	  "precio": 55.00,
+	  "stock": 25
+	},
+	{
+	  "id": 7,
+	  "nombre": "Router TP-Link C6",
+	  "precio": 39.95,
+	  "stock": 18
+	},
+	{
+	  "id": 8,
+	  "nombre": "Audífonos Sony WH-CH510",
+	  "precio": 89.99,
+	  "stock": 10
+	},
+	{
+	  "id": 9,
+	  "nombre": "Impresora Epson L3250",
+	  "precio": 215.49,
+	  "stock": 8
+	},
+	{
+	  "id": 10,
+	  "nombre": "Tablet Lenovo M10",
+	  "precio": 150.00,
+	  "stock": 14
+	},
+	{
+	  "id": 11,
+	  "nombre": "Cámara Web Logitech C920",
+	  "precio": 69.99,
+	  "stock": 22
+	},
+	{
+	  "id": 12,
+	  "nombre": "RAM Corsair Vengeance",
+	  "precio": 75.25,
+	  "stock": 17
+	},
+	{
+	  "id": 13,
+	  "nombre": "Reloj Amazfit Bip U",
+	  "precio": 49.99,
+	  "stock": 27
+	},
+	{
+	  "id": 14,
+	  "nombre": "Micrófono Blue Yeti",
+	  "precio": 109.99,
+	  "stock": 11
+	},
+	{
+	  "id": 15,
+	  "nombre": "Tarjeta Gráfica NVIDIA GTX1660",
+	  "precio": 299.99,
+	  "stock": 6
+	},
+	{
+	  "id": 16,
+	  "nombre": "Enfriador KLIM IceBase",
+	  "precio": 19.95,
+	  "stock": 40
+	},
+	{
+	  "id": 17,
+	  "nombre": "Adaptador UGREEN CM209",
+	  "precio": 12.49,
+	  "stock": 35
+	},
+	{
+	  "id": 18,
+	  "nombre": "Powerbank Anker A1281",
+	  "precio": 42.90,
+	  "stock": 28
+	},
+	{
+	  "id": 19,
+	  "nombre": "Proyector Epson EF-100",
+	  "precio": 320.00,
+	  "stock": 5
+	},
+	{
+	  "id": 20,
+	  "nombre": "Limpieza PC OXO KitClean",
+	  "precio": 9.99,
+	  "stock": 60
+	},
+	{
+	  "id": 21,
+	  "nombre": "Laptop HP Pavilion 15",
+	  "precio": 589.99,
+	  "stock": 9
+	},
+	{
+	  "id": 22,
+	  "nombre": "Tarjeta Madre ASUS Prime B450M",
+	  "precio": 109.50,
+	  "stock": 15
+	},
+	{
+	  "id": 23,
+	  "nombre": "Combo Teclado y Mouse Logitech MK270",
+	  "precio": 32.99,
+	  "stock": 24
+	},
+	{
+	  "id": 24,
+	  "nombre": "Hub USB 3.0 UGREEN 4 Puertos",
+	  "precio": 18.75,
+	  "stock": 50
+	},
+	{
+	  "id": 25,
+	  "nombre": "Disco SSD Crucial MX500 1TB",
+	  "precio": 82.90,
+	  "stock": 13
+	},
+	{
+	  "id": 26,
+	  "nombre": "Estabilizador Forza FVR-1201",
+	  "precio": 49.99,
+	  "stock": 16
+	},
+	{
+	  "id": 27,
+	  "nombre": "Monitor LG 29WL500 UltraWide",
+	  "precio": 259.00,
+	  "stock": 7
+	},
+	{
+	  "id": 28,
+	  "nombre": "Auriculares HyperX Cloud Stinger",
+	  "precio": 59.95,
+	  "stock": 20
+	},
+	{
+	  "id": 29,
+	  "nombre": "Mini PC Intel NUC 11",
+	  "precio": 499.00,
+	  "stock": 4
+	},
+	{
+	  "id": 30,
+	  "nombre": "Silla Gamer Cougar Armor One",
+	  "precio": 189.99,
+	  "stock": 6
+	},
+	{
+	  "id": 31,
+	  "nombre": "Antena WiFi TP-Link TL-WN725N",
+	  "precio": 10.49,
+	    "stock": 45
+	},
+	{
+	  "id": 32,
+	  "nombre": "Tira LED RGB Govee 5m",
+	  "precio": 23.50,
+	  "stock": 30
+	},
+	{
+	  "id": 33,
+	  "nombre": "Soporte Dual para Monitor NB F160",
+	  "precio": 34.90,
+	  "stock": 12
+	},
+	{
+	  "id": 34,
+	  "nombre": "Alfombrilla Gaming Redragon P003",
+	  "precio": 14.75,
+	  "stock": 60
+	},
+	{
+	  "id": 35,
+	  "nombre": "Bocinas Logitech Z313",
+	  "precio": 39.99,
+	  "stock": 18
+	},
+	{
+	  "id": 36,
+	  "nombre": "Webcam Nexxt Solutions NWVC640",
+	  "precio": 27.90,
+	  "stock": 21
+	},
+	{
+	  "id": 37,
+	  "nombre": "Base para Laptop Cooler Master",
+	  "precio": 28.49,
+	  "stock": 26
+	},
+	{
+	  "id": 38,
+	  "nombre": "Extensor WiFi TP-Link RE200",
+	  "precio": 34.95,
+	  "stock": 19
+	},
+	{
+	  "id": 39,
+	  "nombre": "Control Xbox Series X Inalámbrico",
+	  "precio": 64.99,
+	  "stock": 11
+	},
+	{
+	  "id": 40,
+	  "nombre": "Cable HDMI 2.1 4K 60Hz UGREEN",
+	  "precio": 8.99,
+	  "stock": 70
+	}
+]
