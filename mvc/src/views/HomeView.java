@@ -15,6 +15,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import controllers.ProductController;
+import controllers.UserController;
+
 public class HomeView {
 	
 	private JFrame frame;
@@ -117,36 +120,24 @@ public class HomeView {
 		btn_1.setFont(new Font("Tahoma", Font.BOLD, 10));
 		buttons.add(btn_1);
 		btn_1.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
-		btn_1.addActionListener(new ActionListener() {
+		btn_1.addActionListener(e -> {
+			frame.dispose();
 			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				frame.dispose();
-				
-				users();
-				
-			}
-			
+			UserController uc = new UserController();
+			uc.users();
 		});
 		
-		JButton btn_2 = new JButton("Registros");//Botón: Registros
+		JButton btn_2 = new JButton("Productos");//Botón: Productos
 		btn_2.setPreferredSize(new Dimension(80, 25));
 		btn_2.setBackground(Color.ORANGE);
 		btn_2.setFont(new Font("Tahoma", Font.BOLD, 10));
 		buttons.add(btn_2);
 		btn_2.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
-		btn_2.addActionListener(new ActionListener() {
+		btn_2.addActionListener(e -> {
+			frame.dispose();
 			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				frame.dispose();
-				
-				registers();
-				
-			}
-			
+			ProductController pc = new ProductController();
+			pc.products();
 		});
 		
 		JButton btn_3 = new JButton("Configuración");//Botón: Configuración
@@ -163,80 +154,6 @@ public class HomeView {
 				frame.dispose();
 				
 				settings();
-				
-			}
-			
-		});
-		
-	}
-	
-	public void users() {
-		
-		//VENTANA
-		
-		frame = new JFrame();
-		frame.setTitle("Usuarios");
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/saturno.png")));//Ícono de ventana personalizado
-		frame.setSize(500, 537);
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		frame.getContentPane().setLayout(new FlowLayout());
-		
-		//BOTÓN
-		
-		JButton btn_4 = new JButton("Volver a Inicio");//Botón: Volver a Inicio
-		btn_4.setPreferredSize(new Dimension(100, 25));
-		btn_4.setBackground(Color.ORANGE);
-		btn_4.setFont(new Font("Tahoma", Font.BOLD, 10));
-		frame.add(btn_4);
-		btn_4.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
-		btn_4.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				frame.dispose();
-				
-				home();
-				
-			}
-			
-		});
-		
-	}
-	
-	public void registers() {
-		
-		//VENTANA
-		
-		frame = new JFrame();
-		frame.setTitle("Registros");
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/saturno.png")));//Ícono de ventana personalizado
-		frame.setSize(500, 537);
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		frame.getContentPane().setLayout(new FlowLayout());
-		
-		//BOTÓN
-		
-		JButton btn_5 = new JButton("Volver a Inicio");//Botón: Volver a Inicio
-		btn_5.setPreferredSize(new Dimension(100, 25));
-		btn_5.setBackground(Color.ORANGE);
-		btn_5.setFont(new Font("Tahoma", Font.BOLD, 10));
-		frame.add(btn_5);
-		btn_5.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
-		btn_5.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				frame.dispose();
-				
-				home();
 				
 			}
 			

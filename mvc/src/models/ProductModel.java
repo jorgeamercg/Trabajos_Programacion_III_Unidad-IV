@@ -136,7 +136,7 @@ public class ProductModel {
 	        }
 	    });
 
-	    model.addRow(new Object[] { row[0], row[1], row[2], row[3], remove });
+	    model.addRow(new Object[] {row[0], row[1], row[2], row[3], remove});
 	}
 	
 	@SuppressWarnings("unchecked")

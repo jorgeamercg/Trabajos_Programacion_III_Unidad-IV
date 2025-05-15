@@ -26,6 +26,7 @@ import javax.swing.table.TableCellRenderer;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import controllers.HomeController;
 import controllers.ProductController;
 import models.ProductModel;
 
@@ -36,7 +37,9 @@ public class ProductView {
 	private JTable table;
 
 	public ProductView() {
+		
 		functions = new ProductModel();
+		
 	}
 	
 	public void products(JSONArray data) {
@@ -143,6 +146,21 @@ public class ProductView {
 				
 			}
 		});
+		
+		JButton volver = new JButton("Volver a Inicio");//Botón: Volver a Inicio
+		volver.setPreferredSize(new Dimension(130, 20));
+		volver.setBackground(Color.ORANGE);
+		volver.setForeground(Color.BLACK); 
+		volver.setFont(new Font("Tahoma", Font.BOLD, 10));
+		buttonsPanel.add(volver);
+		volver.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+		volver.addActionListener(e -> {
+			win.dispose();
+			
+			HomeController hc = new HomeController();
+			hc.home();
+		});
+		
 	}
 	
 	//Renderizador y editor para que los botones se vean y funcionen en la tabla
@@ -177,10 +195,10 @@ public class ProductView {
 		public Object getCellEditorValue() {
 			return button;
 		}
+		
 	}
 	
-	public void addProduct()
-	{
+	public void addProduct() {
 		//VENTANA
 
 		JFrame win = new JFrame();
@@ -251,7 +269,6 @@ public class ProductView {
 				pc.products();
 				
 			}});
-		panel.add(add);
 		
 		JButton cancel = new JButton("Cancelar");//Botón: Cancelar
 		cancel.setBounds(105, 450, 130, 20);
@@ -271,7 +288,6 @@ public class ProductView {
 				pc.products();
 				
 			}});
-		panel.add(cancel); 
 		
 	}
 
