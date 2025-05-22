@@ -6,7 +6,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Toolkit;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -16,10 +17,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import controllers.HomeController;
-
+import controllers.ProductController;
+import controllers.UserController;
+import models.ProductModel;
 import models.User;
 import models.UserModel;
 
@@ -119,6 +123,103 @@ public class UserView {
 			HomeController hc = new HomeController();
 			hc.home();
 		});
+		
+		JButton add = new JButton("Añadir Usuario");//Botón: Añadir Usuario
+		add.setPreferredSize(new Dimension(130, 20));
+		add.setBackground(Color.ORANGE);
+		add.setForeground(Color.BLACK); 
+		add.setFont(new Font("Tahoma", Font.BOLD, 10));
+		buttonsPanel.add(add);
+		add.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+		add.addActionListener(e -> {
+			win.dispose();
+			
+			addUser();
+		});
+	}
+	
+	public void addUser() {
+		//VENTANA
+
+		JFrame win = new JFrame();
+		win.setTitle("Añadir Usuario");
+		win.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/saturno.png")));//Ícono de ventana personalizado
+		win.setSize(500, 537);
+		win.setResizable(false);
+		win.setLocationRelativeTo(null);
+		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		win.setVisible(true);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
+		win.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setLayout(null);
+		
+		JLabel nameTag = new JLabel("Nombre del usuario: ");
+		nameTag.setBounds(105, 140, 200, 40);
+		panel.add(nameTag);
+		JTextField nameInput = new JTextField();
+		nameInput.setBounds(105, 170, 270, 20);
+		panel.add(nameInput);
+		
+		JLabel emailTag = new JLabel("Email del usuario: ");
+		emailTag.setBounds(105, 180, 200, 40);
+		panel.add(emailTag);
+		JTextField emailInput = new JTextField();
+		emailInput.setBounds(105, 210, 270, 20);
+		panel.add(emailInput);
+		
+		JLabel roleTag = new JLabel("Rol de usuario: ");
+		roleTag.setBounds(105, 220, 200, 40);
+		panel.add(roleTag);
+		JTextField roleInput = new JTextField();
+		roleInput.setBounds(105, 250, 270, 20);
+		panel.add(roleInput);
+		
+		JButton add = new JButton("Añadir Usuario");//Botón: Añadir Usuario
+		add.setBounds(245, 450, 130, 20);
+		add.setBackground(Color.GREEN);
+		add.setForeground(Color.BLACK); 
+		add.setFont(new Font("Tahoma", Font.BOLD, 10));
+		panel.add(add);
+		add.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+		add.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				String name = nameInput.getText();
+				String email = emailInput.getText();
+				String role = roleInput.getText();
+				
+				UserModel um = new UserModel();
+				um.userAdd(name, email, role);
+				
+				win.dispose();
+				
+				UserController uc = new UserController();
+				uc.users();
+				
+			}});
+		
+		JButton cancel = new JButton("Cancelar");//Botón: Cancelar
+		cancel.setBounds(105, 450, 130, 20);
+		cancel.setBackground(Color.RED);
+		cancel.setForeground(Color.WHITE); 
+		cancel.setFont(new Font("Tahoma", Font.BOLD, 10));
+		panel.add(cancel);
+		cancel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+		cancel.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				win.dispose();
+				
+				UserController uc = new UserController();
+				uc.users();
+				
+			}});
 		
 	}
 
